@@ -1,14 +1,6 @@
-// PWA offline shell. Data is stored in this browser's localStorage, NOT in this cache.
-const CACHE = 'angela-jaqui-luxury-v4.1.3';
-const SHELL = ['./','./index.html','./styles.css','./luxury.css','./app.js','./features-v4.js','./qr.js','./catalogo.html','./catalogo.js','./catalogo.css','./catalogo-luxury.css','./catalogo.json','./assets/showroom-banner.webp','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png'];
-self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())));
-self.addEventListener('activate', e => e.waitUntil(caches.keys().then(k => Promise.all(k.filter(x => x !== CACHE).map(x => caches.delete(x)))).then(() => self.clients.claim())));
-// Red primero: siempre la versión más nueva; sin conexión, se usa la copia guardada.
-self.addEventListener('fetch', e => {
-  const r = e.request;
-  if (r.method !== 'GET' || new URL(r.url).origin !== self.location.origin) return;
-  e.respondWith(fetch(r).then(res => {
-    if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(r, copy)); }
-    return res;
-  }).catch(async () => (await caches.match(r)) || (r.mode === 'navigate' && new URL(r.url).pathname.endsWith('/') ? caches.match('./index.html') : Response.error())));
-});
+/* Showroom Luxury Secure 4.2. Solo recursos estáticos; NUNCA cachea datos de Supabase. */
+const CACHE='angela-jaqui-secure-4.2.0';
+const ASSETS=['./','./index.html','./admin.html','./catalogo.html','./styles.css','./luxury.css','./secure.css','./app.js','./features-v4.js','./qr.js','./cloud-config.js','./secure-cloud.js','./catalogo.js','./catalogo.css','./catalogo-luxury.css','./assets/showroom-banner.webp','./manifest.webmanifest','./manifest-admin.webmanifest','./icons/icon-192.png','./icons/icon-512.png'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{let u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;if(u.pathname.endsWith('.json')||u.pathname.endsWith('/cloud-config.js'))return;e.respondWith(fetch(e.request).then(r=>{if(r.ok&&r.type==='basic'){let clone=r.clone();caches.open(CACHE).then(c=>c.put(e.request,clone)).catch(()=>{});}return r}).catch(()=>caches.match(e.request).then(x=>x||Response.error())))});

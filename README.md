@@ -1,113 +1,65 @@
-**Actualización 4.1.3:** agregadas las opciones «Niño» y «Niña» al campo «Para quién es», los filtros de inventario y la vidriera. Los datos existentes se conservan.
+# 🦋 Showroom Angela y Jaqui — Luxury Secure v4.2
 
-**Actualización 4.1.2:** nuevo campo «Para quién es» (Mujer, Hombre o Unisex), filtros en inventario y vidriera, y exportaciones actualizadas. Las prendas anteriores quedan como «Sin especificar» hasta que las edites.
+**Aplicación web estática para GitHub + Render, con autenticación y datos protegidos en Supabase.** Conserva el diseño Luxury y las funciones principales de la v4.1.3: inventario, fotos, Mujer/Hombre/Niño/Niña/Unisex, QR, ventas, caja, reservas, looks, gastos, WhatsApp y respaldos.
 
-**Actualización 4.1.1:** permite elegir fotos desde la biblioteca del iPhone sin abrir forzosamente la cámara. Para aplicar únicamente esta corrección, basta reemplazar `index.html` en GitHub.
+## Qué recibe cada persona
 
-# 🦋 Showroom Angela y Jaqui · Luxury Edition v4.1
+| Dirección | Función | Acceso |
+|---|---|---|
+| `/` o `/catalogo.html` | Vidriera, precios, talles y consultas por WhatsApp | Público, sin contraseña |
+| `/admin.html` | Inventario, altas/bajas, caja, ventas, reservas, estadísticas | **Solo la cuenta autorizada en Supabase** |
 
-Aplicación web instalable (PWA) para llevar una feria de ropa nueva y usada: inventario, fotos, caja rápida, historial, gastos, reservas con señas, looks, etiquetas con QR y vidriera para WhatsApp.
+El catálogo público **no incluye costos, ventas, datos de clientas, gastos ni ganancias**. El inventario y el catálogo se guardan en tablas distintas. La base de datos aplica Row Level Security (RLS): una contraseña visual en el navegador NO sería suficiente.
 
-**Este paquete funciona sin instalar Node, npm ni servicios pagos:** son archivos estáticos que podés subir a GitHub Pages. **No tiene inicio de sesión ni base de datos en la nube.** El inventario administrativo permanece en el navegador del dispositivo que lo usa.
+## Importante: requiere configuración antes de funcionar
 
-> **Actualización desde GitHub + Render:** leé primero `ACTUALIZAR_GITHUB_RENDER.md`. Conservá el mismo repositorio y sitio de Render; descargá un respaldo privado antes de sustituir archivos.
+**No está conectado a ninguna cuenta de Supabase**. Por seguridad, `admin.html` permanece bloqueado mientras `cloud-config.js` esté vacío. El catálogo aparecerá sin productos hasta completar la conexión, autorizar al administrador y migrar las prendas. No se incluye ninguna contraseña o credencial secreta en el ZIP.
 
-## Archivos principales
+1. **HACÉ UN RESPALDO JSON** desde la versión anterior **antes** de reemplazar los archivos. Guardalo también fuera del celular.
+2. Creá un proyecto propio en [Supabase](https://supabase.com/dashboard).
+3. Abrí **SQL Editor** y ejecutá `supabase/01_instalar.sql`.
+4. En **Authentication → Users**, creá **una sola cuenta** para vos; copiá su *User ID* (UUID).
+5. En `supabase/02_asignar_administrador.sql`, reemplazá `REEMPLAZAR_CON_EL_UUID_DEL_ADMIN` por ese UUID y ejecutá el SQL desde SQL Editor. No pegues la contraseña en ningún archivo. Verificá que haya **solo una** fila en `showroom_admins`.
+6. En **Project Settings / Connect / API keys** de Supabase, copiá la URL del proyecto y **solo la clave publishable (`sb_publishable_...`) o `anon` pública** a `cloud-config.js`. **NUNCA** pongas la clave secret/service_role.
+7. Subí **todos** los archivos de este ZIP a la raíz del repositorio `Misael2546/showroom-angela-y-jaqui`, incluyendo `admin.html`, `cloud-config.js`, `secure-cloud.js`, `secure.css` y la carpeta `supabase/` (solo SQL sin secretos).
+8. Confirmá el commit en `main`. Render debería desplegar desde `main` si Auto Deploy está activado. Verificá `Deploy succeeded`.
+9. Abrí `/admin.html` en tu dominio de Render. Iniciá sesión con el usuario creado en Supabase. La primera vez el inventario de la nube estará vacío.
+10. Importá una **copia JSON** de la versión anterior usando **Ajustes → Restaurar copia (.json)**, o el botón **Importar datos anteriores** si conservás los datos en ese mismo navegador. **No migres datos sin respaldo**. Esperá al indicador **Sincronizado en la nube**.
+11. Abrí la dirección principal del sitio (o `/catalogo.html`) para verificar que el catálogo solo muestra prendas, precios y contactos públicos.
 
-```text
-index.html           Aplicación de gestión (uso local del showroom)
-app.js               Inventario, ventas, gastos, POS, ideas y respaldos
-features-v4.js       Reservas, señas, looks, QR y exportación del catálogo
-qr.js                Generador QR incluido (MIT, sin conexión)
-styles.css           Estilos funcionales de la app, responsive y design tokens
-luxury.css           Capa visual Luxury Edition para la administración
-catalogo.html        Vidriera pública para clientas
-catalogo.js          Filtros y consultas por WhatsApp
-catalogo.css         Estilos originales de la vidriera pública
-catalogo-luxury.css  Capa visual Luxury Edition para la vidriera
-catalogo.json        Copia pública inicial vacía; se actualiza manualmente
-assets/              Imagen de marca
-icons/               Iconos para instalar la app
-manifest.webmanifest, service-worker.js  PWA / caché de interfaz
-CHANGELOG.md         Registro de mejoras
-GUIA_DE_USO.md        Guía de operación diaria
-ACTUALIZAR_GITHUB_RENDER.md  Guía para reemplazar la v4 desde iPhone
-.nojekyll             Compatibilidad con GitHub Pages
-```
+## Cuidado con la migración
 
-## Instalación en GitHub Pages
+- Al reemplazar `index.html`, la página inicial se convierte en **catálogo público**. La administración anterior ahora está en **`/admin.html`**.
+- Los datos originales se guardaban en `localStorage` y parte de las fotos en IndexedDB. Para conservar las fotos, hacé la exportación JSON desde la app original en el mismo dispositivo antes del cambio. Comprobá que el archivo exportado contenga las imágenes; si no, conservá el dispositivo original y usá **Importar datos anteriores**.
+- La primera sincronización sube las imágenes a Supabase Storage; la duración depende de la conexión y la cantidad de prendas. Evitá cerrar la pestaña hasta ver **Sincronizado en la nube**.
+- La migración no debe borrarse ni invalidarse hasta verificar cantidades, precios, fotos y ventas en la nube.
+- Si la sincronización falla, la app deja una copia local pendiente y muestra una advertencia. No asumas que la nube se actualizó hasta que el indicador lo confirme.
+- Si se detectan cambios simultáneos de otra sesión, la app **evita sobrescribir** el inventario remoto y pide revisión manual.
 
-1. Descargá y descomprimí el ZIP.
-2. En GitHub, entrá al repositorio donde ya publicaste la v3.2 (recomendado: **el mismo repositorio y la misma URL**).
-3. Abrí la carpeta descomprimida. Subí **los archivos de adentro** (no el ZIP) a la raíz del repositorio. Reemplazá los archivos anteriores y agregá los nuevos.
-4. Verificá que `index.html`, `catalogo.html`, `catalogo.json`, `features-v4.js` y `qr.js` hayan quedado en la raíz.
-5. En **Settings → Pages**, elegí **Deploy from a branch**, rama `main` y carpeta `/(root)`. Si ya estaba activado, mantené la configuración.
-6. La app administrativa queda en `https://TU-USUARIO.github.io/NOMBRE-REPOSITORIO/`. La vidriera pública queda en `https://TU-USUARIO.github.io/NOMBRE-REPOSITORIO/catalogo.html`.
-7. Si el celular muestra la versión vieja, cerrá la aplicación instalada y volvé a abrirla; la actualización del caché puede necesitar una recarga.
+## Seguridad y alcance técnico
 
-### ¡Antes de actualizar, hacé respaldo!
+- Supabase Auth valida correo y contraseña.
+- La tabla `showroom_admins` tiene que contener **solo tu UUID**; no existe formulario de registro público.
+- Las políticas RLS restringen lectura/escritura del estado privado a esa cuenta; el RPC `commit_showroom` es **SECURITY INVOKER**, así que respeta RLS. La publicación del catálogo sucede en la **misma transacción** que el estado privado.
+- Las fotos del bucket `showroom-prendas` son **públicas por URL** para mostrarse en la vidriera, pero **solo el administrador puede subirlas, cambiarlas o borrarlas**. No subas fotos privadas.
+- La clave *publishable* del proyecto está destinada al navegador; la clave **secret/service_role NO**.
+- El acceso a `/admin.html` es un bloqueo visual además del verdadero control backend; el archivo JS es público, pero las credenciales y los datos protegidos **no** lo son.
+- La aplicación puede leer datos en diferentes dispositivos **después de iniciar sesión**. No ofrece cobros bancarios, pagos integrados ni reservas automáticas de clientas.
+- Para protección de producción, activá MFA para la cuenta administradora donde esté disponible y configurá respaldos de la base de datos según tu plan de Supabase.
 
-En la v3.2, entrá a **Ajustes → Descargar copia completa (.json)** en el navegador donde realmente están las prendas. Guardalo fuera del teléfono. Repetí el respaldo desde la v4.0 antes de comenzar a operar.
+## Pruebas de seguridad obligatorias antes de operar
 
-La v4 reutiliza **la misma clave de datos** (`showroom-angela-jaque-v1`), por lo que una actualización en la **misma dirección web y navegador** conserva la información normalmente. Una pestaña privada, un navegador distinto, un nuevo dominio, otro celular o borrar los datos del sitio puede hacer que no aparezca el inventario. En esos casos usá **Ajustes → Restaurar copia**.
+1. Ingresar sin iniciar sesión a `/admin.html`: debe pedir correo y contraseña.
+2. Ingresar con una cuenta cualquiera que no esté en `showroom_admins`: debe rechazar la administración.
+3. Como anónimo, consultar API `showroom_state`: debe devolver cero filas/denegar acceso.
+4. Como anónimo, intentar actualizar `showroom_state` y `showroom_catalog`: debe ser rechazado.
+5. Como administrador, agregar una prenda y esperar **Sincronizado en la nube**.
+6. Abrir `/catalogo.html` en otro teléfono: debe mostrar esa prenda, sin costo de compra.
+7. Agregar una reserva o realizar una venta: recargar catálogo y confirmar disponibilidad.
+8. Cambiar foto y verificarla desde otro dispositivo.
+9. Exportar respaldo JSON y verificar que contiene prendas, ventas, señas y fotos.
+10. Confirmar que solo **una** fila existe en `showroom_admins`.
 
-## Funcionalidades nuevas
+> Limitación: no fue posible ejecutar estas pruebas contra tu proyecto real de Supabase porque no se proporcionaron sus credenciales ni existe todavía una instancia configurada. **No declares segura la instalación hasta completar estas pruebas.**
 
-### 1. Reservas y señas 🎟️
-
-- En **Prendas**, tocá el botón `♡` junto a la prenda, o entrá a **Reservas → Nueva reserva**.
-- Elegí prenda, unidades, clienta, fecha de vencimiento, seña recibida y medio de pago.
-- La cantidad reservada se **resta de la disponibilidad**, pero se mantiene en el stock físico hasta la venta.
-- Las reservas vencidas **dejan de apartar stock automáticamente**. Si todavía querés guardarla, tocá *Renovar reserva* y comprobá que haya stock.
-- Tocá **Concretar venta** para convertirla en una venta del precio total y registrar la seña como dinero ya recibido. El ticket muestra cuánto queda por cobrar. No se toma la seña como descuento.
-- Si cancelás una reserva con seña, la app **no devuelve dinero**: registrá por separado si reintegraste o retuviste ese importe. El reporte actual no calcula ingresos/egresos reales por señas.
-
-**Importante:** *Ventas* muestra el importe total de cada operación concretada; sus importes por medio de pago **no equivalen a un arqueo de efectivo** cuando hubo señas previas.
-
-### 2. Looks o conjuntos 🎀
-
-- **Más → Armá tu look**: seleccioná entre dos y cuatro prendas disponibles.
-- Definí nombre, descuento en pesos opcional y mensaje de promoción.
-- Compartí el look por WhatsApp o agregalo al ticket. El descuento del conjunto se incluye en el campo descuento de Caja.
-- No se aparta stock al crear un look; se verifica cuando lo sumás a una venta.
-- Si se modifica un precio, el valor del look se recalcula con el precio vigente.
-
-### 3. Etiquetas QR ▦
-
-- En **Prendas**, tocá el botón de etiqueta 🏷 para imprimir el nombre, precio, talle, código y **QR real del SKU**.
-- Para buscar, tocá **Escanear QR** en Prendas, Caja o Más.
-- En navegadores compatibles con `BarcodeDetector` podés activar la cámara (**requiere HTTPS y permiso**). Si no está disponible, podés escribir el código manualmente. **No todos los celulares/iPhone admiten escaneo automático**.
-- Al encontrar la prenda, la app abre su edición; si estás en Caja y tiene disponibilidad, la suma al ticket.
-- Los QR contienen el identificador de la prenda, **no** datos privados ni enlaces a la administración.
-
-### 4. Vidriera pública 🌐
-
-Esta versión incluye una **página separada** (`catalogo.html`) para que las clientas vean prendas, fotos, precio, talle, estado y looks, con botones de WhatsApp.
-
-**Para actualizarla desde la app administrativa:**
-
-1. En **Ajustes**, cargá el número de WhatsApp comercial con código de país, si querés publicarlo.
-2. En **Más → Catálogo público**, descargá el archivo `catalogo.json`.
-3. En GitHub, reemplazá únicamente el archivo **`catalogo.json` de la raíz** por el que acabás de descargar.
-4. Luego de la publicación, compartí el enlace `/catalogo.html` (opción **Más → Enlace a la vidriera**).
-5. Volvé a exportarlo después de ventas, reservas, altas o cambios de precio. **El catálogo no se actualiza solo.** Confirmá la disponibilidad por WhatsApp antes de aceptar una venta.
-
-El JSON público contiene únicamente **nombre, SKU, categoría, talle, color, estado, precio, imagen, looks y WhatsApp comercial optativo**. **No incluye** costos, ventas, notas internas, gastos, señas ni datos de clientas. Si agregás fotos, el archivo exportado puede pesar más y GitHub puede tener límites de tamaño de carga.
-
-**No subas nunca a un repositorio público el respaldo completo de la app**, porque sí contiene información comercial y datos de clientas.
-
-## Límites reales y seguridad
-
-- GitHub Pages es un alojamiento de archivos estáticos: **no sincroniza stock ni reservas entre teléfonos**. Cada navegador tiene sus propios registros locales.
-- La app administrativa no tiene autenticación. Al publicarla cualquiera puede abrir una instancia local vacía, pero **no** puede leer las ventas del navegador de Angela desde GitHub Pages. No confundas esto con un sistema multiusuario seguro.
-- Para trabajar con **Angela y Jaqui desde dos celulares con un único inventario** necesitás un backend con autenticación, base de datos, control de concurrencia y fotos compartidas (por ejemplo, Supabase o Firebase). **Esa sincronización todavía no está implementada.**
-- `localStorage` e `IndexedDB` pueden borrarse por configuración o limpieza del navegador; descargá respaldos y guardalos por fuera de la aplicación.
-- La cámara y ciertas funciones PWA requieren `https:` o un origen seguro. El escáner puede no estar disponible según el navegador.
-- Este producto no procesa pagos, reintegros ni reservas online; anota manualmente operaciones de una feria presencial.
-- La venta y el costo de mercadería se registran como en la versión original; los resultados siguen siendo estimaciones, sin impuestos ni costos no registrados.
-
-## Verificaciones técnicas
-
-Probado en Chromium con automatización de navegador: carga y edición, reserva con seña y control de stock, venta desde reserva, looks y descuento en caja, salida de `catalogo.json` sin costos ni clientas, navegación móvil, catálogo público vacío, generación real de QR decodificada mediante OpenCV y diseño responsive en anchos de **320 a 1440 px**.
-
-**Alcance:** pruebas locales automatizadas; no incluyen un despliegue dentro de tu cuenta de GitHub ni pruebas de cámara sobre celulares físicos. Recomendamos registrar primero prendas y ventas de prueba y descargar un respaldo antes de empezar a operar.
+Documentación oficial: [Supabase Auth](https://supabase.com/docs/guides/auth), [Supabase RLS](https://supabase.com/docs/guides/database/postgres/row-level-security), [Supabase Storage](https://supabase.com/docs/guides/storage).

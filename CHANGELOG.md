@@ -1,3 +1,10 @@
+## 4.1.1 · Corrección de selector de fotos en iPhone
+
+- El selector de imagen de una prenda ahora permite elegir una foto existente de la fototeca de iOS, en vez de abrir la cámara directamente.
+- La cámara sigue disponible como opción cuando la ofrece el sistema.
+- Se ajustó el texto de ayuda.
+- No se modificó la estructura del inventario, la caja, los datos locales ni las funciones de ventas.
+
 # Historial de versiones
 
 ## v4.1 · Luxury Edition (rediseño visual)

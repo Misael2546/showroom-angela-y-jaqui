@@ -1,3 +1,7 @@
+### Parche 4.1.1 — Selección de fotografías (iPhone)
+
+Para corregir únicamente el selector de imágenes, reemplazá SOLO `index.html` en la raíz de tu repositorio GitHub. No necesitás reemplazar otros archivos ni crear carpetas nuevas. Render debería actualizarse cuando detecte el commit en `main`, si tiene Auto-Deploy activado. Si no, en Render hacé Manual Deploy → Deploy latest commit. Si Safari sigue mostrando la versión anterior, cerrá y volvé a abrir la web con conexión a internet. Los datos locales no se modifican por este cambio de código, pero siempre conviene tener un respaldo JSON.
+
 # Actualizar Showroom Angela y Jaqui a Luxury 4.1 desde el iPhone
 
 La v4.1 es un **rediseño visual** que conserva la lógica y la clave de almacenamiento de la v4.0. No hay que crear un repositorio ni otro sitio de Render.

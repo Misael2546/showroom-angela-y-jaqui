@@ -1,3 +1,5 @@
+**Actualización 4.1.1:** permite elegir fotos desde la biblioteca del iPhone sin abrir forzosamente la cámara. Para aplicar únicamente esta corrección, basta reemplazar `index.html` en GitHub.
+
 # 🦋 Showroom Angela y Jaqui · Luxury Edition v4.1
 
 Aplicación web instalable (PWA) para llevar una feria de ropa nueva y usada: inventario, fotos, caja rápida, historial, gastos, reservas con señas, looks, etiquetas con QR y vidriera para WhatsApp.

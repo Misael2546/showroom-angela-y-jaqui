@@ -1,0 +1,62 @@
+/* Luxury Edition 4.1 — public storefront; does not expose private business data. */
+:root {--pink:#b54d76;--bg:#f8f5f2;--line:#e8e1dd;--sub:#7a7c85;--shadow:0 1px 3px rgba(23,34,57,.026),0 13px 35px rgba(23,34,57,.055);}
+body {background:linear-gradient(180deg,#f8f4f1,#fbf9f6 60%);color:#172239;}
+.cat-top {background:rgba(255,253,250,.97);border-color:#e9e0db;height:84px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.cat-brand {font-family:"Iowan Old Style",Baskerville,Georgia,serif;font-weight:500;font-size:27px;letter-spacing:-.65px;}
+.cat-brand i {color:#b54d76;}
+.cat-brand-icon {background:#f5e8e8;border:1px solid #ecdfe0;border-radius:50%;width:42px;height:42px;}
+.cat-brand small {color:#a7778c;font:700 9px/1.6 ui-sans-serif,system-ui,sans-serif;letter-spacing:2.2px;}
+.cat-chat {background:#172239;border-radius:13px;min-height:44px;display:inline-flex;align-items:center;box-shadow:0 7px 16px rgba(23,34,57,.1);}
+.cat-hero {margin-top:30px;min-height:435px;background:linear-gradient(125deg,#f7eeea,#fff9f4);border:1px solid #e9dcd8;border-radius:29px;box-shadow:0 14px 40px rgba(23,34,57,.065);}
+.cat-hero-copy {padding:54px clamp(26px,5vw,75px);}
+.cat-overline,.cat-eyebrow {color:#a65471;letter-spacing:2.4px;}
+.cat-hero h1 {font:500 clamp(38px,5vw,69px)/1.07 "Iowan Old Style",Baskerville,Georgia,serif;letter-spacing:-1.7px;margin:20px 0 15px;}
+.cat-hero h1 em {color:#ae5072;}
+.cat-hero-copy>p:not(.cat-overline) {color:#777882;line-height:1.8;font-size:14px;}
+.cat-hero>img {object-fit:cover;object-position:50% 51%;filter:saturate(.9);}
+.cat-go {background:linear-gradient(120deg,#a94670,#bd5982);box-shadow:0 9px 20px rgba(181,77,118,.18);border-radius:13px;min-height:47px;}
+.cat-go:hover {background:#9c3c62;}
+.cat-content {padding-top:60px;}
+.cat-heading h2 {font:500 clamp(30px,3.5vw,44px)/1.1 "Iowan Old Style",Baskerville,Georgia,serif;letter-spacing:-.9px;}
+.cat-count {background:#f3e6e8;color:#98516a;}
+.cat-search-label,.cat-toolbar select {background:#fffdfa;border-color:#e7e1dc;border-radius:13px;min-height:49px;}
+.cat-search-label:focus-within {border-color:#b54d76;box-shadow:0 0 0 3px rgba(181,77,118,.1);}
+.cat-grid {gap:20px;}
+.cat-card {background:#fffdfa;border:1px solid #ece5df;border-radius:22px;box-shadow:var(--shadow);}
+.cat-card:hover {border-color:#dcc9ce;box-shadow:0 18px 44px rgba(23,34,57,.11);}
+.cat-photo {background:#f4e9e7;}
+.cat-tag {background:rgba(255,253,250,.95);color:#273148;border-radius:30px;border:1px solid #fff;}
+.cat-details {padding:19px;}
+.cat-details h3 {font-size:16px;font-weight:720;color:#253048;}
+.cat-attributes {color:#82838d;}
+.cat-bottom {border-top:1px solid #f0e9e5;padding-top:13px;}
+.cat-bottom strong {font-size:22px;letter-spacing:-.8px;}
+.cat-button {border-color:#eddae1;color:#9d4669;background:#f9eef0;border-radius:11px;min-height:41px;display:inline-flex;align-items:center;}
+.cat-button:hover {background:#f3dfe5;}
+.cat-empty {background:#fffdfa;border-color:#e0d4d0;border-radius:23px;}
+.cat-look {background:#fffdfa;border-color:#ece5df;border-radius:22px;}
+.cat-look-info h3 {font-family:"Iowan Old Style",Georgia,serif;font-size:24px;font-weight:500;}
+.cat-last {background:linear-gradient(135deg,#172239,#2b3d57);border-radius:29px;padding:57px 26px;}
+.cat-last h2 {font:500 clamp(32px,3.8vw,49px) "Iowan Old Style",Georgia,serif;}
+footer strong {font-family:"Iowan Old Style",Georgia,serif;font-size:20px;font-weight:500;}
+@media(max-width:700px) {
+ .cat-top {height:70px;padding:0 15px;}
+ .cat-brand {font-size:20px;}
+ .cat-brand-icon {width:36px;height:36px;}
+ .cat-chat {font-size:10px;padding:10px;min-height:41px;}
+ .cat-hero {margin:12px 12px 0;min-height:0;grid-template-columns:1fr;border-radius:23px;}
+ .cat-hero-copy {padding:34px 24px 30px;}
+ .cat-hero h1 {font-size:clamp(34px,9vw,44px);line-height:1.1;}
+ .cat-hero>img {max-height:220px;object-fit:cover;}
+ .cat-content {margin:0 13px;padding:38px 0 20px;}
+ .cat-heading h2 {font-size:31px;}
+ .cat-grid {gap:11px;}
+ .cat-card {border-radius:17px;}
+ .cat-details {padding:13px;}
+ .cat-details h3 {font-size:13.5px;}
+ .cat-bottom strong {font-size:17px;}
+ .cat-button {font-size:10px;padding:8px;min-height:38px;}
+ .cat-last {border-radius:23px;padding:35px 20px;}
+ .cat-last h2 {font-size:33px;}
+}
+@media(prefers-reduced-motion:reduce) {*,*::before,*::after {animation:none!important;transition:none!important;scroll-behavior:auto!important;}}

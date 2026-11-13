@@ -1,4 +1,4 @@
-# Guía rápida de uso · Showroom Angela y Jaqui v4
+# Guía rápida de uso · Showroom Angela y Jaqui v4.1
 
 ## Todos los días
 

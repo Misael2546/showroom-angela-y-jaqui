@@ -1,11 +1,11 @@
 {
-  "name": "Showroom Angela y Jaqui | Premium",
+  "name": "Showroom Angela y Jaqui | Luxury 4.1",
   "short_name": "Angela y Jaqui",
   "description": "Inventario, caja, reservas, señas, looks, etiquetas QR y vidriera para Showroom Angela y Jaqui",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#F8F7F8",
+  "background_color": "#F7F5F2",
   "theme_color": "#172239",
   "lang": "es-AR",
   "icons": [

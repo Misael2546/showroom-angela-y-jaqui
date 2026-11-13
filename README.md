@@ -1,8 +1,10 @@
-# 🦋 Showroom Angela y Jaqui · Premium v4.0
+# 🦋 Showroom Angela y Jaqui · Luxury Edition v4.1
 
 Aplicación web instalable (PWA) para llevar una feria de ropa nueva y usada: inventario, fotos, caja rápida, historial, gastos, reservas con señas, looks, etiquetas con QR y vidriera para WhatsApp.
 
 **Este paquete funciona sin instalar Node, npm ni servicios pagos:** son archivos estáticos que podés subir a GitHub Pages. **No tiene inicio de sesión ni base de datos en la nube.** El inventario administrativo permanece en el navegador del dispositivo que lo usa.
+
+> **Actualización desde GitHub + Render:** leé primero `ACTUALIZAR_GITHUB_RENDER.md`. Conservá el mismo repositorio y sitio de Render; descargá un respaldo privado antes de sustituir archivos.
 
 ## Archivos principales
 
@@ -11,16 +13,19 @@ index.html           Aplicación de gestión (uso local del showroom)
 app.js               Inventario, ventas, gastos, POS, ideas y respaldos
 features-v4.js       Reservas, señas, looks, QR y exportación del catálogo
 qr.js                Generador QR incluido (MIT, sin conexión)
-styles.css           Estilos de la app, responsive y design tokens
+styles.css           Estilos funcionales de la app, responsive y design tokens
+luxury.css           Capa visual Luxury Edition para la administración
 catalogo.html        Vidriera pública para clientas
 catalogo.js          Filtros y consultas por WhatsApp
-catalogo.css         Diseño de la vidriera pública
+catalogo.css         Estilos originales de la vidriera pública
+catalogo-luxury.css  Capa visual Luxury Edition para la vidriera
 catalogo.json        Copia pública inicial vacía; se actualiza manualmente
 assets/              Imagen de marca
 icons/               Iconos para instalar la app
 manifest.webmanifest, service-worker.js  PWA / caché de interfaz
 CHANGELOG.md         Registro de mejoras
 GUIA_DE_USO.md        Guía de operación diaria
+ACTUALIZAR_GITHUB_RENDER.md  Guía para reemplazar la v4 desde iPhone
 .nojekyll             Compatibilidad con GitHub Pages
 ```
 

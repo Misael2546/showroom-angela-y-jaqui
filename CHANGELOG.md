@@ -1,3 +1,17 @@
+## v4.1.3 · Ropa infantil
+- Se incorporan **Niño** y **Niña** al campo «Para quién es», tanto para cargar como para editar prendas.
+- Se agregan los dos filtros en el inventario y en el catálogo público.
+- Las fichas, etiquetas, exportaciones y mensajes de WhatsApp reconocen las nuevas secciones.
+- No modifica precios, stock ni ventas ya guardadas. Las prendas sin clasificación siguen como «Sin especificar».
+- Para publicar prendas nuevas o reclasificadas en la vidriera, exportá otra vez `catalogo.json` y subilo al repositorio.
+
+## v4.1.2 · Sección de indumentaria
+- Nuevo selector «Para quién es»: Mujer, Hombre, Unisex o Sin especificar.
+- Nuevo filtro para inventario y catálogo público; visible en las tarjetas.
+- Se conserva el campo en respaldos JSON, CSV, WhatsApp y exportación del catálogo.
+- Prendas antiguas quedan «Sin especificar», sin inventar su clasificación.
+- Cambio limitado a la UI y datos; no cambia la clave de localStorage.
+
 ## 4.1.1 · Corrección de selector de fotos en iPhone
 
 - El selector de imagen de una prenda ahora permite elegir una foto existente de la fototeca de iOS, en vez de abrir la cámara directamente.

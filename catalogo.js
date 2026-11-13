@@ -1,7 +1,7 @@
 'use strict';
 let catData={store:'Angela y Jaqui',currency:'ARS',whatsapp:'',products:[],looks:[],exportedAt:null};
 let catQuery='',catCategory='Todas',catCondition='Todas',catAudience='Todas';
-function audienceOf(p){return ['Mujer','Hombre','Unisex'].includes(p?.audience)?p.audience:'Sin especificar'}
+function audienceOf(p){return ['Mujer','Hombre','Niño','Niña','Unisex'].includes(p?.audience)?p.audience:'Sin especificar'}
 function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function cash(x){try{return new Intl.NumberFormat('es-AR',{style:'currency',currency:['ARS','USD','BOB'].includes(catData.currency)?catData.currency:'ARS',maximumFractionDigits:2}).format(Number(x)||0)}catch{return '$ '+Number(x||0).toLocaleString('es-AR')}}
 function pic(x){return x?.image&&/^data:image\/(jpeg|jpg|png|webp|gif);base64,/i.test(x.image)?`<img loading="lazy" src="${x.image}" alt="${esc(x.name)}">`:'<span aria-label="Sin foto">👗</span>'}

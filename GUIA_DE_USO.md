@@ -1,3 +1,6 @@
+## Novedad v4.1.3 · Ropa infantil
+En **Nueva prenda → Para quién es**, elegí Mujer, Hombre, Niño, Niña o Unisex. Las prendas anteriores pueden editarse si estaban sin especificar. En el inventario y el catálogo público hay filtros equivalentes.
+
 # Guía rápida de uso · Showroom Angela y Jaqui v4.1
 
 ## Todos los días

@@ -1,3 +1,7 @@
+**Actualización 4.1.3:** agregadas las opciones «Niño» y «Niña» al campo «Para quién es», los filtros de inventario y la vidriera. Los datos existentes se conservan.
+
+**Actualización 4.1.2:** nuevo campo «Para quién es» (Mujer, Hombre o Unisex), filtros en inventario y vidriera, y exportaciones actualizadas. Las prendas anteriores quedan como «Sin especificar» hasta que las edites.
+
 **Actualización 4.1.1:** permite elegir fotos desde la biblioteca del iPhone sin abrir forzosamente la cámara. Para aplicar únicamente esta corrección, basta reemplazar `index.html` en GitHub.
 
 # 🦋 Showroom Angela y Jaqui · Luxury Edition v4.1

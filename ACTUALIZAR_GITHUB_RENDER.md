@@ -1,3 +1,13 @@
+## Actualizar a v4.1.3 desde v4.1.2
+
+1. Descargá una copia de seguridad JSON desde la app actual en el mismo navegador donde tenés las prendas.
+2. En la raíz del repositorio de GitHub `Misael2546/showroom-angela-y-jaqui`, subí los archivos de `Solo_Actualizacion.zip` descomprimidos y reemplazá los anteriores. Para la funcionalidad son indispensables **`index.html`, `app.js`, `catalogo.html`, `catalogo.js` y `service-worker.js`**.
+3. Elegí **Commit directly to main** y confirmá.
+4. Comprobá el nuevo despliegue en Render y abrí la aplicación: el campo «Para quién es» debe incluir **Niño** y **Niña**.
+5. Para renovar los productos que ven las clientas, exportá un nuevo `catalogo.json` desde el módulo de catálogo de la app y subilo a la raíz de GitHub. Esto es manual porque el stock no se sincroniza.
+
+No borres los datos del sitio para forzar la actualización; eso puede borrar el inventario local. El administrador y la vidriera son sitios estáticos y no comparten una base de datos centralizada.
+
 ## Actualizar a v4.1.2 desde GitHub y Render
 
 1. **Descargá una copia JSON** desde la aplicación publicada antes de actualizar.

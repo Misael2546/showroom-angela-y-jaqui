@@ -1,3 +1,15 @@
+## Actualizar a v4.1.2 desde GitHub y Render
+
+1. **Descargá una copia JSON** desde la aplicación publicada antes de actualizar.
+2. En GitHub, rama `main`, reemplazá los archivos `index.html`, `app.js`, `features-v4.js`, `catalogo.html`, `catalogo.js` y `service-worker.js`. Si preferís, reemplazá el paquete completo sin cambiar la estructura de carpetas.
+3. Seleccioná «Commit directly to main» y guardá.
+4. Render, si tiene Auto-Deploy activado, debería desplegar el nuevo commit. Revisá que el deploy figure «Live».
+5. Abrí la app en el **mismo navegador y el mismo dominio**. Entrá a Nueva prenda y revisá el selector «Para quién es».
+6. Las prendas antiguas quedan «Sin especificar» hasta que las edites.
+7. Si querés reflejar la sección en la **vidriera pública**, exportá un nuevo `catalogo.json` desde la app administrativa y subilo a GitHub. Nunca subas al repositorio un respaldo JSON privado con costos, ventas o clientas.
+
+**Importante:** GitHub/Render publican el código, pero no sincronizan el inventario entre dispositivos. El almacenamiento de la aplicación continúa siendo local al navegador.
+
 ### Parche 4.1.1 — Selección de fotografías (iPhone)
 
 Para corregir únicamente el selector de imágenes, reemplazá SOLO `index.html` en la raíz de tu repositorio GitHub. No necesitás reemplazar otros archivos ni crear carpetas nuevas. Render debería actualizarse cuando detecte el commit en `main`, si tiene Auto-Deploy activado. Si no, en Render hacé Manual Deploy → Deploy latest commit. Si Safari sigue mostrando la versión anterior, cerrá y volvé a abrir la web con conexión a internet. Los datos locales no se modifican por este cambio de código, pero siempre conviene tener un respaldo JSON.

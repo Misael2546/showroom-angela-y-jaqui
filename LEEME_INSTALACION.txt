@@ -1,29 +1,41 @@
-# Nuevo ícono de Showroom Angela y Jaqui — iPhone / Android
+SHOWROOM ANGELA Y JAQUI — ENCABEZADO PREMIUM RESPONSIVE
+====================================================
 
-Este paquete mantiene la app y sus datos. No incluye ni toca credenciales, Supabase, prendas o ventas.
+Esta actualización cambia SOLO la parte superior del CATÁLOGO PUBLICO.
+Conserva enlaces y elementos de consulta de WhatsApp, y NO cambia
+Supabase, el panel privado, inventario, ventas ni las imágenes existentes.
 
-## Carpeta icons (subir dentro de /icons en GitHub)
-- icon-192.png — ícono general PWA de 192 × 192.
-- icon-512.png — ícono general PWA de 512 × 512.
-- icon-maskable-512.png — variante de Android con márgenes de seguridad.
-- apple-touch-icon.png — ícono iPhone de 180 × 180.
+ARCHIVOS PARA GITHUB
+En la RAIZ del repositorio (showroom-angela-y-jaqui):
+    catalogo.html              (reemplazar)
+    encabezado-premium.css     (nuevo)
+    service-worker.js          (reemplazar, para actualizar caché)
 
-## Raíz del repositorio (subir en /, NO dentro de /icons)
-- apple-touch-icon.png — recurso de respaldo para Safari.
-- admin.html — misma página, con la referencia al ícono de 180 px para iPhone.
-- catalogo.html — misma página, agrega apple-touch-icon y el manifiesto PWA.
-- index.html — misma redirección al catálogo, agrega el icono y manifiesto.
-- service-worker.js — misma lógica, con versión de cache renovada e íconos nuevos.
+Dentro de la carpeta assets existente:
+    assets/mariposa-encabezado.png   (nuevo)
 
-Los archivos `manifest.webmanifest` y `manifest-admin.webmanifest` existentes YA apuntan a
-`icons/icon-192.png`, `icons/icon-512.png` e `icons/icon-maskable-512.png`. No hay que reemplazarlos.
+NO se deben subir todos los archivos a la carpeta icons.
+NO hace falta modificar cloud-config.js ni volver a instalar Supabase.
 
-## Publicación
-1. Guardá el respaldo actual y evitá mezclar archivos de otras versiones.
-2. En GitHub, rama main, abrí la carpeta icons; Add file → Upload files → elegí los cuatro PNG de icons de este paquete → Commit changes.
-3. Volvé a la raíz del repositorio y subí `apple-touch-icon.png`, `admin.html`, `catalogo.html`, `index.html` y `service-worker.js` → Commit changes.
-4. Verificá en Render que el deploy de main figure Live.
-5. iPhone: si ya existe un acceso viejo, quitá SOLO el acceso de la pantalla de inicio (no la cuenta ni el catálogo). Abrí Safari → URL oficial → Compartir → Añadir a pantalla de inicio → Abrir como app web → Añadir.
-6. Android: Chrome → menú → Instalar aplicación / Añadir a pantalla principal.
+PROCEDIMIENTO RECOMENDADO
+1. Crear una nueva rama en GitHub, no trabajar directamente en main.
+2. Subir/reemplazar los tres archivos de raiz en la rama de prueba.
+3. Entrar en assets y subir mariposa-encabezado.png a esa carpeta.
+4. Crear Pull Request hacia main.
+5. Antes de fusionar, verificar que catalogo.html del repositorio actual
+   tenga todavía la estructura del catálogo Secure 4.2; este paquete
+   se preparó sobre esa versión local y NO se pudo cotejar con el
+   repositorio remoto más reciente. Si cambiaron otros elementos,
+   conservarlos y aplicar solo el nuevo <header> y la nueva línea CSS.
+6. Verificar en Render /catalogo.html desde iPhone y Android: título
+   completo, botón Consultar prendas funcionando y acceso al catálogo.
+7. Fusionar cuando todo funcione. Mantener respaldo previo.
 
-AVISO: si los HTML actuales se modificaron después de armar esta copia, NO los reemplaces sin comparar. Se prepararon con los archivos de la versión Secure 4.2 disponibles aquí. Nunca subas claves privadas ni exportaciones JSON a GitHub.
+NOTAS
+- El diseño es texto HTML y CSS adaptativo; no es una captura fija.
+- No se cambió el número de WhatsApp. Conserva el que ya esté guardado
+  en Ajustes. Si el deseado es +54 9 11 4173-3668, comprobá que
+  el panel tenga configurado el número 5491141733668.
+- El archivo nuevo 'encabezado-premium.css' se carga después de las
+  hojas existentes, por lo que solo modifica el encabezado público.
+- No se modifica la instalación PWA ni el ícono de inicio.

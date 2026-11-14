@@ -1,0 +1,160 @@
+/* Showroom Angela y Jaqui · Cabecera premium · CSS aislado del catálogo. */
+/* Esta hoja se carga DESPUÉS de catalogo.css y catalogo-luxury.css. */
+.cat-top {
+  box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  min-height: 156px;
+  padding: 24px max(24px, calc((100vw - 1270px)/2));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(16px, 2.7vw, 38px);
+  background: radial-gradient(ellipse 580px 160px at 0% 0%, rgba(238,174,186,.61), transparent 75%),
+              radial-gradient(ellipse 630px 180px at 100% 110%, rgba(239,169,184,.56), transparent 77%),
+              linear-gradient(110deg, #fff6f3 0%, #fffdf9 47%, #fff6f2 100%);
+  border: 0;
+  border-bottom: 2px solid rgba(196,146,98,.57);
+  box-shadow: 0 12px 36px rgba(30,25,49,.055);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+/* Dos pliegues suaves con borde dorado, inspirados en el diseño del showroom. */
+.cat-top::before, .cat-top::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+.cat-top::before {
+  inset: -76px auto auto -9%;
+  width: 43%;
+  height: 137px;
+  border-radius: 0 0 90% 0;
+  transform: rotate(-7deg);
+  background: linear-gradient(160deg, rgba(241,170,189,.63), rgba(254,235,237,.4) 73%, transparent 100%);
+  border-bottom: 1.5px solid #cfa569;
+  box-shadow: 0 2px 1px rgba(255,255,255,.8);
+}
+.cat-top::after {
+  inset: auto -8% -118px auto;
+  width: 65%;
+  height: 165px;
+  border-radius: 90% 0 0 0;
+  transform: rotate(-5deg);
+  background: linear-gradient(10deg,rgba(233,157,174,.41),rgba(253,232,234,.22) 77%,transparent);
+  border-top: 1.6px solid #cda468;
+}
+.cat-top .cat-brand {
+  min-width: 0;
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: center;
+  gap: clamp(14px,2vw,26px);
+  color: #15223b;
+  font-weight: 400;
+  text-decoration: none;
+}
+.cat-top .cat-brand-icon {
+  flex: 0 0 auto;
+  width: clamp(80px,8.2vw,112px);
+  height: clamp(80px,8.2vw,112px);
+  padding: 0;
+  overflow: visible;
+  display: block;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 0 9px 16px rgba(75,50,51,.12);
+}
+.cat-top .cat-brand-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cat-top .cat-brand-name {
+  display: block;
+  color: #14223e;
+  font: 400 clamp(36px,4.45vw,69px)/.96 "Iowan Old Style", Baskerville, "Times New Roman", Georgia, serif;
+  letter-spacing: -1.6px;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgba(255,255,255,.7);
+}
+.cat-top .cat-brand-name i {
+  font-family: "Iowan Old Style", Baskerville, Georgia, serif;
+  font-size: .84em;
+  font-weight: 400;
+  font-style: italic;
+  color: #b94e7b;
+}
+.cat-top .cat-brand-name small {
+  display: block;
+  margin-top: 12px;
+  font: 750 clamp(10px,1.2vw,15px)/1.25 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing: clamp(2px,.36vw,5.2px);
+  color: #a4587b;
+  text-align: center;
+}
+.cat-top .cat-top-right {flex: 0 0 auto; display: flex; align-items: center; justify-content: flex-end;}
+.cat-top .cat-live {display:none;}
+.cat-top .cat-chat {
+  display: inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height: 58px;
+  padding: 16px clamp(20px,2.2vw,35px);
+  border-radius: 999px;
+  font-size: clamp(13px,1.4vw,18px);
+  font-weight: 750;
+  line-height: 1.2;
+  white-space: nowrap;
+  letter-spacing: -.05px;
+  color: #fff;
+  background: linear-gradient(140deg,#1b2e50,#14223d 67%,#102039);
+  border: 1px solid rgba(199,154,112,.56);
+  box-shadow: 0 12px 22px rgba(43,40,62,.17);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.cat-top .cat-chat:hover {transform:translateY(-2px);box-shadow:0 15px 30px rgba(43,40,62,.22);}
+.cat-top .cat-chat:focus-visible {outline:3px solid #bf5780;outline-offset:4px;}
+@media(max-width:1060px) and (min-width:701px) {
+  .cat-top {padding-inline: 22px;min-height:135px;}
+  .cat-top .cat-brand-name {font-size: clamp(32px,4.6vw,51px);}
+  .cat-top .cat-brand-icon {width:clamp(68px,8vw,88px);height:clamp(68px,8vw,88px);}
+  .cat-top .cat-brand-name small {font-size:11px;letter-spacing:2.5px;}
+  .cat-top .cat-chat {font-size:13px;min-height:50px;padding:13px 20px;}
+}
+@media(max-width:700px) {
+  .cat-top {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 13px;
+    min-height: 0;
+    height: auto;
+    padding: 16px 17px 17px;
+  }
+  .cat-top::before {width:75%;height:115px;inset:-69px auto auto -19%;}
+  .cat-top::after {width:85%;height:121px;inset:auto -17% -105px auto;}
+  .cat-top .cat-brand {width:100%;justify-content:center;gap:11px;}
+  .cat-top .cat-brand-icon {width:64px;height:64px;flex-basis:64px;}
+  .cat-top .cat-brand-name {font-size: clamp(28px,7.8vw,43px);letter-spacing:-.7px;}
+  .cat-top .cat-brand-name small {margin-top:8px;font-size:clamp(9px,2.45vw,11px);letter-spacing:clamp(1.5px,.58vw,2.3px);}
+  .cat-top .cat-top-right {width:100%;justify-content:center;}
+  .cat-top .cat-chat {width:min(100%,370px);min-height:44px;padding:11px 15px;font-size:13px;border-radius:999px;}
+}
+@media(max-width:360px) {
+  .cat-top {padding:14px 10px 15px;}
+  .cat-top .cat-brand {gap:7px;}
+  .cat-top .cat-brand-icon {width:52px;height:52px;flex-basis:52px;}
+  .cat-top .cat-brand-name {font-size:clamp(25px,7.6vw,28px);letter-spacing:-.65px;}
+  .cat-top .cat-brand-name small {letter-spacing:1.35px;font-size:8.5px;}
+}
+@media(prefers-reduced-motion: reduce) {
+ .cat-top .cat-chat {transition:none;}
+ .cat-top .cat-chat:hover {transform:none;}
+}

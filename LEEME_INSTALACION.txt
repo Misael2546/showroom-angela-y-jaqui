@@ -1,3 +1,15 @@
+ACTUALIZACIÓN 4.2.8 — FOTOS A PANTALLA COMPLETA Y BOTÓN VOLVER MÁS VISIBLE
+
+- La foto principal de cada prenda ahora llena todo el marco superior, de borde a borde, sin deformarse. Se utiliza recorte proporcional (object-fit: cover), por lo que puede recortar un poco los bordes según la forma de cada fotografía.
+- El botón circular de cierre se muestra en azul noche oscuro con símbolo blanco, mayor contraste y mejor visibilidad para volver al catálogo.
+- Compatible con la vista móvil de iPhone y Android.
+
+SI YA PUBLICASTE LA VERSIÓN 4.2.7, ACTUALIZÁ EN LA RAÍZ DEL REPOSITORIO:
+- detalle-prenda.css
+- service-worker.js
+
+Después de publicar, recargá el catálogo. Si el teléfono conserva la versión anterior, cerrá la pestaña y volvé a abrir el acceso instalado para que se renueve la caché.
+
 ACTUALIZACIÓN 4.2.7 — BOTÓN VERDE DE WHATSAPP CON TEXTO BLANCO
 
 En la ficha de cada prenda, debajo de su fotografía (o miniaturas), el botón conserva el texto exacto «Consulta por WhatsApp» y ahora utiliza verde oscuro de la paleta oficial de WhatsApp (#128C7E), borde verde brillante (#25D366) y letras blancas (#FFFFFF). Al tocarlo, sigue usando el enlace de WhatsApp asociado a la prenda.

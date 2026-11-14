@@ -1,41 +1,58 @@
-SHOWROOM ANGELA Y JAQUI — ENCABEZADO PREMIUM RESPONSIVE
-====================================================
+ACTUALIZACIÓN COMBINADA · DOS ÍCONOS + FICHA AMPLIADA DE PRENDAS
+Angela y Jaqui · iPhone / Android / PC
 
-Esta actualización cambia SOLO la parte superior del CATÁLOGO PUBLICO.
-Conserva enlaces y elementos de consulta de WhatsApp, y NO cambia
-Supabase, el panel privado, inventario, ventas ni las imágenes existentes.
+QUÉ INCLUYE
+- Los dos íconos independientes del ZIP original: clientas (rosado) y administración (oscuro).
+- Manifiestos PWA independientes para instalar catálogo y panel privado.
+- Encabezados premium preparados anteriormente.
+- Nueva ventana de detalle de prenda con foto ampliada, nombre, estado, categoría,
+  sección, talle, color, código, precio y consulta directa por WhatsApp.
+- La foto puede abrirse en pantalla completa. En futuras versiones, si la vidriera
+  pública incluye varias fotos por prenda, aparecerán miniaturas para seleccionarlas.
+- Al cerrar el detalle se conserva la búsqueda y los filtros del catálogo.
 
-ARCHIVOS PARA GITHUB
-En la RAIZ del repositorio (showroom-angela-y-jaqui):
-    catalogo.html              (reemplazar)
-    encabezado-premium.css     (nuevo)
-    service-worker.js          (reemplazar, para actualizar caché)
+CÓMO SUBIRLO A GITHUB
+1. DESCARGÁ Y DESCOMPRIMÍ ESTE ZIP. No lo subas cerrado.
+2. En la RAÍZ del repositorio:
+   - catalogo.html
+   - detalle-prenda.js     (NUEVO)
+   - detalle-prenda.css    (NUEVO)
+   - service-worker.js
+   - admin.html
+   - encabezado-premium.css
+   - admin-encabezado-premium.css
+   - manifest.webmanifest
+   - manifest-admin.webmanifest
+3. Dentro de icons/ subí los 8 PNG incluidos en icons/.
+4. Dentro de assets/ subí mariposa-encabezado.png si todavía no existe.
+5. No subas este archivo LEEME_INSTALACION.txt si no querés instrucciones en el sitio.
+6. MUY IMPORTANTE: como este ZIP parte de una versión anterior Secure 4.2, compará
+   admin.html y catalogo.html con la rama actual de GitHub antes de sobrescribirlos.
+   Se recomienda primero una rama de pruebas con Pull Request.
 
-Dentro de la carpeta assets existente:
-    assets/mariposa-encabezado.png   (nuevo)
+PRUEBA EN RENDER
+- Confirmá que la implementación usa todos los archivos nuevos. Un service worker
+  viejo puede mostrar el catálogo anterior: recargá o reinstalá el acceso web.
+- Abrí catalogo.html en iPhone y Android.
+- Tocá foto, nombre o tarjeta: abre la ficha con imagen grande y datos de esa prenda.
+- Tocá "Ampliar foto": la abre a pantalla completa.
+- Cerrá con X o Escape (en PC), volvé a tus filtros.
+- Tocá el botón "Consultar" de la tarjeta: debe seguir abriendo WhatsApp directo.
+- En la ficha, "Consultar esta prenda por WhatsApp" usa el MISMO enlace de
+  consulta generado por catalogo.js, es decir, el número guardado en Ajustes.
+- Confirmá que el número termina en 3668 antes de compartir el catálogo.
+- Verificá que el panel de administración, acceso privado y sincronización siguen bien.
 
-NO se deben subir todos los archivos a la carpeta icons.
-NO hace falta modificar cloud-config.js ni volver a instalar Supabase.
+PRIVACIDAD Y SUPABASE
+- Esta actualización NO modifica tablas, RLS, usuarios, ventas o datos almacenados.
+- La ficha utiliza el catálogo PUBLICADO (showroom_catalog), sin pedir datos privados.
+- Los campos notes/observaciones del administrador NO se muestran en la ficha.
+- No modifica ni crea cuentas, contraseñas o claves secretas.
+- Si en el futuro querés descripción más extensa, habrá que publicar un campo
+  explícitamente público en el backend; no exponer notas privadas por defecto.
 
-PROCEDIMIENTO RECOMENDADO
-1. Crear una nueva rama en GitHub, no trabajar directamente en main.
-2. Subir/reemplazar los tres archivos de raiz en la rama de prueba.
-3. Entrar en assets y subir mariposa-encabezado.png a esa carpeta.
-4. Crear Pull Request hacia main.
-5. Antes de fusionar, verificar que catalogo.html del repositorio actual
-   tenga todavía la estructura del catálogo Secure 4.2; este paquete
-   se preparó sobre esa versión local y NO se pudo cotejar con el
-   repositorio remoto más reciente. Si cambiaron otros elementos,
-   conservarlos y aplicar solo el nuevo <header> y la nueva línea CSS.
-6. Verificar en Render /catalogo.html desde iPhone y Android: título
-   completo, botón Consultar prendas funcionando y acceso al catálogo.
-7. Fusionar cuando todo funcione. Mantener respaldo previo.
-
-NOTAS
-- El diseño es texto HTML y CSS adaptativo; no es una captura fija.
-- No se cambió el número de WhatsApp. Conserva el que ya esté guardado
-  en Ajustes. Si el deseado es +54 9 11 4173-3668, comprobá que
-  el panel tenga configurado el número 5491141733668.
-- El archivo nuevo 'encabezado-premium.css' se carga después de las
-  hojas existentes, por lo que solo modifica el encabezado público.
-- No se modifica la instalación PWA ni el ícono de inicio.
+SUGERENCIA DE COMMIT
+Título: Incorporar ficha ampliada e iconos duales AJ
+Descripción: Se agregan detalles de prendas con foto ampliable y consulta por
+WhatsApp al catálogo público y se mantienen los iconos separados para clientes
+ y administración. Mejora visual sin cambios previstos en datos ni RLS.

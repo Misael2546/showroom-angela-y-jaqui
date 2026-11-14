@@ -1,0 +1,29 @@
+# Nuevo ícono de Showroom Angela y Jaqui — iPhone / Android
+
+Este paquete mantiene la app y sus datos. No incluye ni toca credenciales, Supabase, prendas o ventas.
+
+## Carpeta icons (subir dentro de /icons en GitHub)
+- icon-192.png — ícono general PWA de 192 × 192.
+- icon-512.png — ícono general PWA de 512 × 512.
+- icon-maskable-512.png — variante de Android con márgenes de seguridad.
+- apple-touch-icon.png — ícono iPhone de 180 × 180.
+
+## Raíz del repositorio (subir en /, NO dentro de /icons)
+- apple-touch-icon.png — recurso de respaldo para Safari.
+- admin.html — misma página, con la referencia al ícono de 180 px para iPhone.
+- catalogo.html — misma página, agrega apple-touch-icon y el manifiesto PWA.
+- index.html — misma redirección al catálogo, agrega el icono y manifiesto.
+- service-worker.js — misma lógica, con versión de cache renovada e íconos nuevos.
+
+Los archivos `manifest.webmanifest` y `manifest-admin.webmanifest` existentes YA apuntan a
+`icons/icon-192.png`, `icons/icon-512.png` e `icons/icon-maskable-512.png`. No hay que reemplazarlos.
+
+## Publicación
+1. Guardá el respaldo actual y evitá mezclar archivos de otras versiones.
+2. En GitHub, rama main, abrí la carpeta icons; Add file → Upload files → elegí los cuatro PNG de icons de este paquete → Commit changes.
+3. Volvé a la raíz del repositorio y subí `apple-touch-icon.png`, `admin.html`, `catalogo.html`, `index.html` y `service-worker.js` → Commit changes.
+4. Verificá en Render que el deploy de main figure Live.
+5. iPhone: si ya existe un acceso viejo, quitá SOLO el acceso de la pantalla de inicio (no la cuenta ni el catálogo). Abrí Safari → URL oficial → Compartir → Añadir a pantalla de inicio → Abrir como app web → Añadir.
+6. Android: Chrome → menú → Instalar aplicación / Añadir a pantalla principal.
+
+AVISO: si los HTML actuales se modificaron después de armar esta copia, NO los reemplaces sin comparar. Se prepararon con los archivos de la versión Secure 4.2 disponibles aquí. Nunca subas claves privadas ni exportaciones JSON a GitHub.

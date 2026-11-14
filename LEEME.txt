@@ -1,0 +1,9 @@
+ACTUALIZACIÓN VISUAL DEL PANEL ADMINISTRADOR - ANGELA Y JAQUI
+Archivos para GitHub:
+En la RAÍZ del repositorio: admin.html y admin-encabezado-premium.css.
+En /assets: mariposa-encabezado.png (si ya existe y es igual, no hace falta reemplazarlo).
+LEEME.txt: solamente instrucciones, no es necesario subir.
+Recomendado: crear rama y probar en Render de pruebas ANTES de fusionar con main.
+Esta versión de admin.html parte de Secure 4.2 + icono PWA que ya se preparó anteriormente. Comprobar diferencias en GitHub antes de reemplazar para no sobrescribir cambios recientes.
+NO subir app.js, secure-cloud.js, archivos SQL ni cloud-config.js: no se modificaron.
+No subas el ZIP cerrado como archivo a GitHub: extraé su contenido antes.

@@ -1,5 +1,5 @@
 /* Showroom Luxury Secure 4.2. Solo recursos estáticos; NUNCA cachea datos de Supabase. */
-const CACHE='angela-jaqui-secure-4.2.5-iconos-duales-detalle';
+const CACHE='angela-jaqui-secure-4.2.7-iconos-duales-cta-whatsapp-verde';
 const ASSETS=['./','./index.html','./admin.html','./catalogo.html','./styles.css','./luxury.css','./secure.css','./app.js','./features-v4.js','./qr.js','./cloud-config.js','./secure-cloud.js','./catalogo.js','./detalle-prenda.js','./detalle-prenda.css','./catalogo.css','./catalogo-luxury.css','./encabezado-premium.css','./admin-encabezado-premium.css','./assets/mariposa-encabezado.png','./assets/showroom-banner.webp','./manifest.webmanifest','./manifest-admin.webmanifest','./icons/cliente-icon-192.png','./icons/cliente-icon-512.png','./icons/cliente-icon-maskable-512.png','./icons/cliente-apple-touch-icon.png','./icons/admin-icon-192.png','./icons/admin-icon-512.png','./icons/admin-icon-maskable-512.png','./icons/admin-apple-touch-icon.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));

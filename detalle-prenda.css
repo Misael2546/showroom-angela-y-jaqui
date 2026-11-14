@@ -1,4 +1,4 @@
-/* Ficha ampliada de clientas · Angela y Jaqui · Secure 4.2.5 */
+/* Ficha ampliada de clientas · Angela y Jaqui · Secure 4.2.7 */
 .cat-card{cursor:pointer}
 .cat-card .cat-photo{cursor:zoom-in}
 .cat-card .cat-photo:focus-visible{outline:3px solid #bd5c84;outline-offset:-4px}
@@ -9,7 +9,7 @@
 .aj-detail-dialog::backdrop{background:rgba(16,21,36,.68);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 .aj-detail-layout{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);min-height:500px}
 .aj-detail-media{position:relative;background:linear-gradient(150deg,#f9f1ef,#ede2e5);min-width:0;padding:14px;display:flex;flex-direction:column;gap:11px}
-.aj-detail-image-action{display:grid;place-items:center;position:relative;width:100%;height:100%;min-height:380px;max-height:640px;padding:0;background:#f6efeb;border:0;border-radius:17px;overflow:hidden;cursor:zoom-in}
+.aj-detail-image-action{display:grid;place-items:center;position:relative;width:100%;flex:1 1 auto;height:auto;min-height:380px;max-height:640px;padding:0;background:#f6efeb;border:0;border-radius:17px;overflow:hidden;cursor:zoom-in}
 .aj-detail-image-action img{height:100%;max-height:640px;width:100%;object-fit:contain}
 .aj-detail-image-action:disabled{cursor:default}
 .aj-detail-noimage{font-size:55px;text-align:center}.aj-detail-noimage small{display:block;font-size:13px;color:#8b7281}
@@ -33,8 +33,10 @@
 .aj-detail-fields{display:grid;grid-template-columns:105px 1fr;gap:10px 15px;margin:0 0 20px;width:100%;font-size:12px}
 .aj-detail-fields dt{color:#858896}.aj-detail-fields dd{color:#263249;font-weight:650;margin:0;overflow-wrap:anywhere}
 .aj-detail-code{font-size:11px;color:#848695;letter-spacing:.2px;margin:auto 0 17px}
-.aj-detail-whatsapp{display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;background:#172239;border-radius:15px;color:white;padding:17px 14px;min-height:54px;width:100%;font-size:13px;font-weight:800;line-height:1.35;box-shadow:0 8px 20px #17223926;text-decoration:none}
-.aj-detail-whatsapp:hover{background:#293a59}
+.aj-detail-whatsapp{display:flex;align-items:center;justify-content:center;flex:0 0 auto;gap:10px;text-align:center;background:#128C7E;border:1px solid #25D366;color:#fff!important;border-radius:15px;padding:17px 14px;min-height:54px;width:100%;font-size:13px;font-weight:800;line-height:1.35;box-shadow:0 8px 20px #128C7E38;text-decoration:none;letter-spacing:.1px}
+.aj-detail-media .aj-detail-whatsapp{margin-top:2px}
+.aj-detail-whatsapp:hover,.aj-detail-whatsapp:focus-visible{background:#075E54;color:#fff!important}
+.aj-detail-whatsapp:visited{color:#fff!important}
 .aj-detail-fineprint{font-size:11px;color:#838595;margin:14px 0 0;line-height:1.5}
 .aj-detail-dialog button:focus-visible,.aj-detail-dialog a:focus-visible,.aj-detail-photo-dialog button:focus-visible{outline:3px solid #bd5c84;outline-offset:3px}
 .aj-detail-photo-dialog{position:fixed;width:100vw;max-width:none;height:100dvh;max-height:none;background:#151622;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -47,7 +49,7 @@
  .aj-detail-dialog{width:calc(100vw - 14px);max-height:calc(100dvh - 18px);border-radius:21px}
  .aj-detail-layout{display:flex;flex-direction:column;min-height:0}
  .aj-detail-media{padding:10px;gap:6px}
- .aj-detail-image-action{min-height:0;height:min(48dvh,430px);max-height:none;border-radius:13px}
+ .aj-detail-image-action{flex:0 0 auto;min-height:0;height:min(43dvh,400px);max-height:none;border-radius:13px}
  .aj-detail-image-action img{max-height:100%;object-fit:contain}
  .aj-detail-photo-counter{top:18px;left:18px}
  .aj-detail-info{padding:35px 21px 23px}
@@ -57,7 +59,7 @@
  .aj-detail-price{font-size:30px}
  .aj-detail-rule{margin:16px 0}
  .aj-detail-fields{gap:8px 14px;margin-bottom:14px}
- .aj-detail-whatsapp{font-size:13px;min-height:51px;padding:14px}
+ .aj-detail-whatsapp{font-size:14px;min-height:52px;padding:14px}
 }
 @media(max-width:370px){.aj-detail-image-action{height:38dvh}.aj-detail-title{font-size:27px}.aj-detail-info{padding:27px 17px 20px}}
 @media(prefers-reduced-motion:reduce){.cat-card{transition:none!important}}

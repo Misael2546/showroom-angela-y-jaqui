@@ -1,4 +1,4 @@
-/* Showroom Angela y Jaqui · detalle público de prenda, Secure 4.2.5
+/* Showroom Angela y Jaqui · detalle público de prenda, Secure 4.2.6
    Mejora exclusivamente de interfaz. No modifica datos, RLS, usuarios ni el almacenamiento.
    Usa la información pública que catalogo.js ya recibió de showroom_catalog.
 */
@@ -18,6 +18,7 @@
           </button>
           <span class="aj-detail-photo-counter" id="ajDetailPhotoCount" hidden></span>
           <div class="aj-detail-thumbs" id="ajDetailThumbs" aria-label="Fotografías de la prenda" hidden></div>
+          <a class="aj-detail-whatsapp" id="ajDetailWhatsApp" target="_blank" rel="noopener noreferrer" href="#catalogo">Consulta por WhatsApp</a>
         </div>
         <div class="aj-detail-info">
           <button type="button" class="aj-detail-close" id="ajDetailClose" aria-label="Cerrar detalle de prenda">✕</button>
@@ -31,7 +32,6 @@
           <p class="aj-detail-description" id="ajDetailDescription"></p>
           <dl class="aj-detail-fields" id="ajDetailFields"></dl>
           <p class="aj-detail-code" id="ajDetailCode"></p>
-          <a class="aj-detail-whatsapp" id="ajDetailWhatsApp" target="_blank" rel="noopener noreferrer" href="#catalogo"><span aria-hidden="true">✆</span> Consultar esta prenda por WhatsApp <span aria-hidden="true">↗</span></a>
           <p class="aj-detail-fineprint">El precio y la disponibilidad se confirman al consultar.</p>
         </div>
       </div>

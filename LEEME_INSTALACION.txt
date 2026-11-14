@@ -1,3 +1,29 @@
+ACTUALIZACIÓN 4.2.7 — BOTÓN VERDE DE WHATSAPP CON TEXTO BLANCO
+
+En la ficha de cada prenda, debajo de su fotografía (o miniaturas), el botón conserva el texto exacto «Consulta por WhatsApp» y ahora utiliza verde oscuro de la paleta oficial de WhatsApp (#128C7E), borde verde brillante (#25D366) y letras blancas (#FFFFFF). Al tocarlo, sigue usando el enlace de WhatsApp asociado a la prenda.
+
+SI YA PUBLICASTE LA ACTUALIZACIÓN ANTERIOR, SOLO CAMBIAN EN LA RAÍZ:
+- detalle-prenda.css  (nuevo color de botón)
+- service-worker.js  (nuevo identificador de caché para actualizar la instalación PWA)
+
+Los otros archivos se incluyen para instalar todo desde cero, pero no hace falta volver a subirlos si ya existen. Para evitar perder cambios recientes, usar una rama de pruebas y comprobar el resultado antes de fusionarlo.
+
+---
+
+ACTUALIZACIÓN 4.2.6 — BOTÓN DE WHATSAPP DEBAJO DE LA FOTO
+
+Cambio solicitado: al abrir los detalles de una prenda, el botón dice exactamente "Consulta por WhatsApp" y queda justo debajo de la fotografía (y de sus miniaturas, si hay varias).
+Se mantiene el enlace de consulta existente, que usa el WhatsApp configurado para el showroom, el catálogo, los íconos separados y el panel administrativo.
+No se modifican funciones de Supabase ni datos de inventario.
+
+Para actualizar la instalación anterior más rápidamente, solo cambian estos archivos en la RAÍZ:
+- detalle-prenda.js
+- detalle-prenda.css
+- service-worker.js (nueva versión de caché)
+
+Si aún no publicaste la versión con los dos íconos, el ZIP contiene también todos los archivos del paquete anterior.
+IMPORTANTE: comprobá antes si tu GitHub tiene versiones más recientes. Hacé los cambios en una rama y probá en Render.
+
 ACTUALIZACIÓN COMBINADA · DOS ÍCONOS + FICHA AMPLIADA DE PRENDAS
 Angela y Jaqui · iPhone / Android / PC
 
